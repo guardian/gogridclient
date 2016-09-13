@@ -1,6 +1,7 @@
 package gogridclient
 
 import (
+	"log"
 	"net/http"
 )
 
@@ -9,6 +10,8 @@ type UsageService struct {
 }
 
 func (usageService UsageService) Reindex(id string) (*http.Response, error) {
+	log.Println("gogridclient: Attempting reindex for", id)
+
 	path := "/usages/digital/content/" + id + "/reindex"
 	url := usageService.gridService.TargetUrl + path
 
